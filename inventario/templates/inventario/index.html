@@ -7,5 +7,39 @@
 </head>
 <body>
     <h5>Hola, {{nombre}}</h5>
+    <table>
+        <tr>
+            <th>ID Camiseta</th>
+            <th>Marca</th>
+            <th>Talla Camiseta</th>
+            <th>Cantidad Camiseta</th>
+            <th>Precio Camiseta</th>
+            <th>Nombre Cliente</th>
+            <th>Metodo De Pago</th>
+            <th>Fecha De Pago</th>
+            <th>Pais</th>
+            <th>Ciudad</th>
+            <th>Barrio</th>
+        </tr>
+        {% for item in camisetas %}
+        <tr>
+            <td>{{ item.id_camiseta }}</td>
+            <td>{{ item.marca }}</td>
+            <td>{{ item.talla_camiseta }}</td>
+            <td>{{ item.cantidad_camiseta }}</td>
+            <td>{{ item.precio_camiseta }}</td>
+            <td>{{ item.nombre_cliente }}</td>
+            <td>{{ item.metodo_de_pago }}</td>
+            <td>{{ item.fecha_de_pago }}</td>
+            <td>{{ item.pais }}</td>
+            <td>{{ item.ciudad }}</td>
+            <td>{{ item.barrio }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div>
+        {{ grafica|safe }}
+    </div>
 </body>
 </html>
