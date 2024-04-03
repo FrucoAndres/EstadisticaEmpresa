@@ -1,0 +1,38 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h5 {
+    color: #333;
+    text-align: center;
+}
+
+/* Estilos de la tabla */
+#tablaCamisetas {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#tablaCamisetas th, #tablaCamisetas td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tablaCamisetas th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+/* Estilos de los gráficos */
+#graficoUno, #graficoDos, #graficoTres, #graficoCuatro, #graficoCinco, #graficoSeis, #graficoSiete {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h5>Hola, {{nombre}}</h5>
-    <table>
+    <table id="tablaCamisetas">
         <tr>
             <th>ID Camiseta</th>
             <th>Marca</th>
@@ -15,9 +16,9 @@
             <th>Cantidad Camiseta</th>
             <th>Precio Camiseta</th>
             <th>Nombre Cliente</th>
-            <th>Metodo De Pago</th>
+            <th>Método De Pago</th>
             <th>Fecha De Pago</th>
-            <th>Pais</th>
+            <th>País</th>
             <th>Ciudad</th>
             <th>Barrio</th>
         </tr>
@@ -38,8 +39,27 @@
         {% endfor %}
     </table>
 
-    <div>
+    <div id="graficoUno">
         {{ grafica|safe }}
     </div>
+    <div id="graficoDos">
+        {{ graficados|safe }}
+    </div>
+    <div id="graficoTres">
+        {{ graficatres|safe }}
+    </div>
+    <div id="graficoCuatro">
+        {{ graficacuatro|safe }}
+    </div>
+    <div id="graficoCinco">
+        {{ graficacinco|safe }}
+    </div>
+    <div id="graficoSeis">
+        {{ graficaseis|safe }}
+    </div>
+    <div id="graficoSiete">
+        {{ graficasiete|safe }}
+    </div>
+
 </body>
 </html>
