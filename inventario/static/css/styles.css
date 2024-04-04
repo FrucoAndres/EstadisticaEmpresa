@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
+    background-color: #c9c9c9;
     margin: 0;
     padding: 0;
 }
@@ -34,7 +34,7 @@ h1 {
 }
 
 
-#graficoUno, #graficoDos, #graficoTres, #graficoCuatro, #graficoCinco, #graficoSeis, #graficoSiete {
+#graficoUno, #graficoDos, #graficoTres, #graficoCuatro, #graficoCinco, #graficoSeis, #graficoSiete, #graficoOcho {
     margin-top: 20px;
     padding: 20px;
     background-color: #fff;
@@ -88,25 +88,6 @@ h1 {
     margin: 0;
 }
 
-.dashboard-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Divide el contenedor en dos columnas iguales */
-    gap: 20px; /* Espacio entre las columnas */
-    padding: 20px;
-}
-
-.tabla-container {
-    max-height: 200px;
-}
-
-.graficos-container {
-    grid-column: 2 / 3; /* Ocupa la segunda columna */
-    grid-row: 1; /* Se ubica en la primera fila */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Divide el contenedor en dos columnas iguales */
-    gap: 20px; /* Espacio entre los gráficos */
-}
-
 /* Estilos para las filas de gráficos */
 .graficos-row {
     display: flex; /* Establece el contenedor como flexbox */
@@ -126,8 +107,49 @@ h1 {
 
 /* Estilos adicionales para los gráficos (puedes ajustar según sea necesario) */
 .grafico h2 {
-    font-size: 18px; /* Tamaño de fuente para los títulos de los gráficos */
-    margin-top: 10px; /* Espacio superior para los títulos */
+    font-size: 10px; /* Tamaño de fuente para los títulos de los gráficos */
+    margin-top: 8px; /* Espacio superior para los títulos */
     text-align: center; /* Alineación centrada */
 }
 
+
+.graficos-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Divide el contenedor en dos columnas iguales */
+    gap: 20px; /* Espacio entre los gráficos */
+}
+
+.tabla-container {
+    max-height: 200px;
+    display: grid;
+    place-items: center;
+    overflow: auto;
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-rows: auto auto; /* Dos filas de altura automática */
+    gap: 20px; /* Espacio entre las filas */
+    padding: 20px;
+}
+
+#venta-mas-cara {
+    background-color: #366fac;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+#venta-mas-cara h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#venta-mas-cara p {
+    font-size: 16px;
+}
+
+#venta-mas-cara span {
+    font-weight: bold;
+}

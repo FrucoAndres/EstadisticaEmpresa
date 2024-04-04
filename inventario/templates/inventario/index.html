@@ -50,8 +50,10 @@
             </table>
         </div>
 
+        <h2>Gráficos de Ventas</h2>
+
         <div class="graficos-container">
-            <h2>Gráficos de Ventas</h2>
+            
             <div id="graficoUno" class="grafico">
                 {{ grafica|safe }}
             </div>
@@ -60,9 +62,6 @@
             </div>
             <div id="graficoTres" class="grafico">
                 {{ graficatres|safe }}
-            </div>
-            <div id="graficoCuatro" class="grafico">
-                {{ graficacuatro|safe }}
             </div>
             <div id="graficoCinco" class="grafico">
                 {{ graficacinco|safe }}
@@ -73,9 +72,22 @@
             <div id="graficoSiete" class="grafico">
                 {{ graficasiete|safe }}
             </div>
+            <div id="graficoOcho" class="grafico">
+                {{ graficaocho|safe }}
+            </div>
+            <div id="venta-mas-cara">
+                <h2>Venta Más Cara</h2>
+                <p>Nombre Cliente: <span id="nombre-cliente"></span></p>
+                <p>Precio Venta: <span id="precio-venta"></span></p>
+            </div>
         </div>
     </div>
 
 </body>
 
 </html>
+<script>
+    // Actualiza los elementos HTML con los detalles de la venta más cara
+    document.getElementById('nombre-cliente').textContent = '{{ nombre_cliente_venta_mas_cara }}';
+    document.getElementById('precio-venta').textContent = '{{ precio_venta_mas_cara }}';
+</script>

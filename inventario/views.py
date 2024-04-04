@@ -9,6 +9,7 @@ import plotly.graph_objs as go
 import plotly.express as px
 import pandas as pd
 
+
 def saludar(request):
 
     ventas = VentaCamiseta.objects.all()
@@ -69,7 +70,6 @@ def saludar(request):
     grafico_metodo_pago_html = grafico_metodo_pago.to_html(full_html=False)
 
     # Marca más vendida
-    marca_mas_vendida = df['marca'].value_counts().idxmax()
     grafico_marca_mas_vendida = px.bar(
         x=df['marca'].value_counts().values,
         y=df['marca'].value_counts().index,
@@ -85,23 +85,17 @@ def saludar(request):
     )
     grafico_marca_mas_vendida_html = grafico_marca_mas_vendida.to_html(full_html=False)
 
-    # Venta más cara y quién la realizó
-    venta_mas_cara = df[df['precio_camiseta'] == df['precio_camiseta'].max()]
-    venta_mas_cara_detalles = venta_mas_cara[['nombre_cliente', 'precio_camiseta']]
-    grafico_venta_mas_cara = px.bar(
-        x=venta_mas_cara_detalles['nombre_cliente'],
-        y=venta_mas_cara_detalles['precio_camiseta'],
-        title='Venta más cara y quién la realizó',
-        labels={'x': 'Nombre Cliente', 'y': 'Precio de Venta'}
-    )
-    grafico_venta_mas_cara.update_traces(marker_color='#007bff')  # Color de las barras
-    grafico_venta_mas_cara.update_layout(
-        font=dict(family="Arial", size=12, color="#333"),
-        plot_bgcolor="#f8f9fa",
-        paper_bgcolor="#fff",
-        margin=dict(l=50, r=50, t=50, b=50)
-    )
-    grafico_venta_mas_cara_html = grafico_venta_mas_cara.to_html(full_html=False)
+    # Calcular el precio total de cada venta
+    df['precio_total'] = df['precio_camiseta'] * df['cantidad_camiseta']
+
+    # Obtener la venta más cara
+    venta_mas_cara = df[df['precio_total'] == df['precio_total'].max()]
+    venta_mas_cara_detalles = venta_mas_cara[['nombre_cliente', 'precio_total']]
+
+    # Obtener los detalles de la venta más cara
+    nombre_cliente = venta_mas_cara_detalles['nombre_cliente'].values[0]
+    precio_venta = venta_mas_cara_detalles['precio_total'].values[0]
+
 
     # Barrio que más compró
     barrio_mas_compras = df['barrio'].value_counts().idxmax()
@@ -141,7 +135,7 @@ def saludar(request):
         df,
         x='marca',
         y='precio_camiseta',
-        title='Distribución de precios de camisetas por marca'
+        title='Distribución de precios por marca'
     )
     grafico_violin.update_traces(line_color='#333')  # Color de las líneas
     grafico_violin.update_layout(
@@ -152,6 +146,27 @@ def saludar(request):
     )
     grafico_violin_html = grafico_violin.to_html(full_html=False)
 
+    # Número de ventas por ciudad
+    ventas_por_ciudad = df['ciudad'].value_counts().reset_index()
+    ventas_por_ciudad.columns = ['ciudad', 'numero_ventas']
+
+    # Crear el gráfico de barras
+    grafico_ventas_por_ciudad = px.bar(
+    ventas_por_ciudad,
+    x='ciudad',
+    y='numero_ventas',
+    title='Número de Ventas por Ciudad',
+    labels={'ciudad': 'Ciudad', 'numero_ventas': 'Número de Ventas'}
+    )
+    grafico_ventas_por_ciudad.update_traces(marker_color='#dc3545')  # Color de las barras
+    grafico_ventas_por_ciudad.update_layout(
+    font=dict(family="Arial", size=12, color="#333"),
+    plot_bgcolor="#f8f9fa",
+    paper_bgcolor="#fff",
+    margin=dict(l=50, r=50, t=50, b=50)
+    )
+    grafico_ventas_por_ciudad_html = grafico_ventas_por_ciudad.to_html(full_html=False)
+
     # Contexto para pasar a la plantilla
     context = {
         "nombre": "andres",
@@ -159,10 +174,12 @@ def saludar(request):
         "grafica": grafico_html,
         "graficados": grafico_metodo_pago_html,
         "graficatres": grafico_marca_mas_vendida_html,
-        "graficacuatro": grafico_venta_mas_cara_html,
+        "nombre_cliente_venta_mas_cara": nombre_cliente,
+        "precio_venta_mas_cara": precio_venta,
         "graficacinco": grafico_barrio_mas_compras_html,
         "graficaseis": grafico_talla_mas_vendida_html,
-        "graficasiete": grafico_violin_html
+        "graficasiete": grafico_violin_html,
+        "graficaocho": grafico_ventas_por_ciudad_html,
     }
 
     return render(request, "inventario/index.html", context)
