@@ -1,65 +1,81 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
-<body>
-    <h5>Hola, {{nombre}}</h5>
-    <table id="tablaCamisetas">
-        <tr>
-            <th>ID Camiseta</th>
-            <th>Marca</th>
-            <th>Talla Camiseta</th>
-            <th>Cantidad Camiseta</th>
-            <th>Precio Camiseta</th>
-            <th>Nombre Cliente</th>
-            <th>Método De Pago</th>
-            <th>Fecha De Pago</th>
-            <th>País</th>
-            <th>Ciudad</th>
-            <th>Barrio</th>
-        </tr>
-        {% for item in camisetas %}
-        <tr>
-            <td>{{ item.id_camiseta }}</td>
-            <td>{{ item.marca }}</td>
-            <td>{{ item.talla_camiseta }}</td>
-            <td>{{ item.cantidad_camiseta }}</td>
-            <td>{{ item.precio_camiseta }}</td>
-            <td>{{ item.nombre_cliente }}</td>
-            <td>{{ item.metodo_de_pago }}</td>
-            <td>{{ item.fecha_de_pago }}</td>
-            <td>{{ item.pais }}</td>
-            <td>{{ item.ciudad }}</td>
-            <td>{{ item.barrio }}</td>
-        </tr>
-        {% endfor %}
-    </table>
 
-    <div id="graficoUno">
-        {{ grafica|safe }}
-    </div>
-    <div id="graficoDos">
-        {{ graficados|safe }}
-    </div>
-    <div id="graficoTres">
-        {{ graficatres|safe }}
-    </div>
-    <div id="graficoCuatro">
-        {{ graficacuatro|safe }}
-    </div>
-    <div id="graficoCinco">
-        {{ graficacinco|safe }}
-    </div>
-    <div id="graficoSeis">
-        {{ graficaseis|safe }}
-    </div>
-    <div id="graficoSiete">
-        {{ graficasiete|safe }}
+<body>
+
+    <header>
+        <h1>Dashboard de Ventas</h1>
+    </header>
+
+    <div class="dashboard-container">
+        <div class="tabla-container">
+            <h2>Tabla de Ventas</h2>
+            <table id="tablaCamisetas">
+                <tr>
+                    <th>ID Camiseta</th>
+                    <th>Marca</th>
+                    <th>Talla Camiseta</th>
+                    <th>Cantidad Camiseta</th>
+                    <th>Precio Camiseta</th>
+                    <th>Nombre Cliente</th>
+                    <th>Método De Pago</th>
+                    <th>Fecha De Pago</th>
+                    <th>País</th>
+                    <th>Ciudad</th>
+                    <th>Barrio</th>
+                </tr>
+                {% for item in camisetas %}
+                <tr>
+                    <td>{{ item.id_camiseta }}</td>
+                    <td>{{ item.marca }}</td>
+                    <td>{{ item.talla_camiseta }}</td>
+                    <td>{{ item.cantidad_camiseta }}</td>
+                    <td>{{ item.precio_camiseta }}</td>
+                    <td>{{ item.nombre_cliente }}</td>
+                    <td>{{ item.metodo_de_pago }}</td>
+                    <td>{{ item.fecha_de_pago }}</td>
+                    <td>{{ item.pais }}</td>
+                    <td>{{ item.ciudad }}</td>
+                    <td>{{ item.barrio }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="graficos-container">
+            <h2>Gráficos de Ventas</h2>
+            <div id="graficoUno" class="grafico">
+                {{ grafica|safe }}
+            </div>
+            <div id="graficoDos" class="grafico">
+                {{ graficados|safe }}
+            </div>
+            <div id="graficoTres" class="grafico">
+                {{ graficatres|safe }}
+            </div>
+            <div id="graficoCuatro" class="grafico">
+                {{ graficacuatro|safe }}
+            </div>
+            <div id="graficoCinco" class="grafico">
+                {{ graficacinco|safe }}
+            </div>
+            <div id="graficoSeis" class="grafico">
+                {{ graficaseis|safe }}
+            </div>
+            <div id="graficoSiete" class="grafico">
+                {{ graficasiete|safe }}
+            </div>
+        </div>
     </div>
 
 </body>
+
 </html>

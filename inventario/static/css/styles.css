@@ -1,0 +1,133 @@
+
+#tablaCamisetas {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px; /* Reducimos el margen superior para que los gráficos se vean más cerca de la tabla */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+#tablaCamisetas {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tablaCamisetas th,
+#tablaCamisetas td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#tablaCamisetas th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+
+#graficoUno, #graficoDos, #graficoTres, #graficoCuatro, #graficoCinco, #graficoSeis, #graficoSiete {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px; /* Aumentamos el radio del borde para un aspecto más suave */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Agregamos una ligera sombra para un aspecto tridimensional */
+}
+
+/* Estilo para los títulos de los gráficos */
+.plotly-graph-div .plotly .main-svg text.title-text {
+    font-family: 'Arial', sans-serif; /* Cambiamos la fuente del título */
+    font-size: 18px; /* Ajustamos el tamaño de la fuente */
+    fill: #333; /* Color del texto */
+}
+
+/* Estilo para las etiquetas de los ejes */
+.plotly-graph-div .plotly .main-svg text.axis-title-text {
+    font-family: 'Arial', sans-serif; /* Cambiamos la fuente de las etiquetas de los ejes */
+    font-size: 14px; /* Ajustamos el tamaño de la fuente */
+    fill: #555; /* Color del texto */
+}
+
+/* Estilo para los valores en los ejes */
+.plotly-graph-div .plotly .main-svg text.ticktext {
+    font-family: 'Arial', sans-serif; /* Cambiamos la fuente de los valores en los ejes */
+    font-size: 12px; /* Ajustamos el tamaño de la fuente */
+    fill: #777; /* Color del texto */
+}
+
+#tablaCamisetas {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide el contenedor en dos columnas iguales */
+    gap: 20px; /* Espacio entre las columnas */
+    padding: 20px;
+}
+
+.tabla-container {
+    max-height: 200px;
+}
+
+.graficos-container {
+    grid-column: 2 / 3; /* Ocupa la segunda columna */
+    grid-row: 1; /* Se ubica en la primera fila */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Divide el contenedor en dos columnas iguales */
+    gap: 20px; /* Espacio entre los gráficos */
+}
+
+/* Estilos para las filas de gráficos */
+.graficos-row {
+    display: flex; /* Establece el contenedor como flexbox */
+    justify-content: space-evenly; /* Distribuye uniformemente los elementos a lo largo del eje principal */
+    margin-bottom: 20px; /* Espacio entre cada fila de gráficos */
+}
+
+/* Estilo para los gráficos individuales */
+.grafico {
+    flex: 1; /* Hace que los gráficos se expandan para llenar el espacio disponible */
+    margin-right: 10px; /* Espacio entre cada gráfico */
+    background-color: #fff; /* Color de fondo del contenedor del gráfico */
+    border-radius: 10px; /* Borde redondeado */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    overflow: hidden; /* Evita que el contenido sobresalga del contenedor */
+}
+
+/* Estilos adicionales para los gráficos (puedes ajustar según sea necesario) */
+.grafico h2 {
+    font-size: 18px; /* Tamaño de fuente para los títulos de los gráficos */
+    margin-top: 10px; /* Espacio superior para los títulos */
+    text-align: center; /* Alineación centrada */
+}
+
